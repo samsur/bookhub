@@ -21,10 +21,9 @@ Create a new Angular project with standalone components:
 ```bash
 ng new bookhub
 ```
-
 When prompted, answer:
-- Would you like to add Angular routing? **Yes**
 - Which stylesheet format would you like to use? **CSS**
+-  Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)?n
 
 Navigate into your project:
 ```bash
