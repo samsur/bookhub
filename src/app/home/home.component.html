@@ -1,0 +1,46 @@
+<div class="home-container">
+  <div class="search-section">
+    <h2>Find Your Next Great Read</h2>
+    <p>Tell us about your book preferences and we'll recommend some great books for you!</p>
+    
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>What kind of books do you enjoy?</mat-label>
+      <textarea 
+        matInput 
+        [(ngModel)]="userPrompt" 
+        placeholder="E.g., I love science fiction books with time travel and adventure"
+        rows="3">
+      </textarea>
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" (click)="searchBooks()" [disabled]="!userPrompt.trim() || loading">
+      Get Recommendations
+    </button>
+  </div>
+
+  <div class="loading-section">
+    @if (loading) {
+      <mat-spinner></mat-spinner>
+      <p>Finding the perfect books for you...</p>
+    }
+  </div>
+
+  <div class="books-grid">
+    @if (books.length > 0 && !loading) {
+      @for (book of books; track book.title; let i = $index) {
+        <mat-card class="book-card" (click)="viewBookDetail(book, i)">
+          <mat-card-header>
+            <mat-card-title>{{ book.title }}</mat-card-title>
+            <mat-card-subtitle>{{ book.author }} ({{ book.year }})</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="genre"><strong>Genre:</strong> {{ book.genre }}</p>
+            <p class="description">{{ book.description }}</p>
+            <p class="rating"><strong>Rating:</strong> ⭐ {{ book.rating }}/5</p>
+          </mat-card-content>
+        </mat-card>
+      }
+    }
+  </div>
+</div>
+

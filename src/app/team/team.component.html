@@ -1,0 +1,17 @@
+<div class="team-container">
+  <h2>Our Team</h2>
+  <p class="subtitle">Meet the amazing people behind BookHub</p>
+  
+  <div class="team-grid">
+    @for (member of teamMembers; track member.name) {
+      <mat-card class="team-card">
+        <img mat-card-image [src]="member.avatar" [alt]="member.name" class="avatar">
+        <mat-card-content>
+          <h3>{{ member.name }}</h3>
+          <p class="role">{{ member.role }}</p>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</div>
+

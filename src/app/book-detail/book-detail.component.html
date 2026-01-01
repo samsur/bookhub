@@ -1,0 +1,89 @@
+<div class="detail-container">
+  @if (book) {
+    <div class="back-button-container">
+      <button mat-raised-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Results
+      </button>
+    </div>
+
+    <mat-card class="detail-card">
+      <div class="card-header">
+        <div class="book-info">
+          <h1 class="book-title">{{ book.title }}</h1>
+          <h2 class="book-author">by {{ book.author }}</h2>
+          
+          <div class="metadata">
+            <mat-chip-set>
+              <mat-chip class="genre-chip">{{ book.genre }}</mat-chip>
+              <mat-chip class="year-chip">{{ book.year }}</mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="rating-container">
+            <div class="stars">
+              @for (star of getStars(); track star) {
+                <span class="star" [class.filled]="star <= book.rating">
+                  ★
+                </span>
+              }
+            </div>
+            <span class="rating-text">{{ book.rating }}/5</span>
+          </div>
+        </div>
+
+        <div class="book-cover">
+          <div class="cover-placeholder">
+            <mat-icon>menu_book</mat-icon>
+          </div>
+        </div>
+      </div>
+
+      <mat-card-content>
+        <div class="description-section">
+          <h3>Description</h3>
+          <p class="description">{{ book.description }}</p>
+        </div>
+
+        <div class="additional-info">
+          <div class="info-item">
+            <mat-icon>person</mat-icon>
+            <div>
+              <h4>Author</h4>
+              <p>{{ book.author }}</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <mat-icon>category</mat-icon>
+            <div>
+              <h4>Genre</h4>
+              <p>{{ book.genre }}</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <mat-icon>event</mat-icon>
+            <div>
+              <h4>Published</h4>
+              <p>{{ book.year }}</p>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  @if (!book) {
+    <div class="error-container">
+      <mat-card>
+        <mat-card-content>
+          <h2>Book not found</h2>
+          <p>Sorry, we couldn't find the book details.</p>
+          <button mat-raised-button color="primary" (click)="goBack()">Go Back</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>
+

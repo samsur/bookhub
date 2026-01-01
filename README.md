@@ -1,59 +1,86 @@
-# Bookhub
+# BookHub - Angular Learning Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+A simple Angular application demonstrating front-end to back-end integration for educational purposes.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Book recommendation search using AI
+- Clean, responsive UI with Angular Material
+- Routing between Home and Team pages
+- Standalone components
+- Service-based architecture
 
-```bash
-ng serve
+## Project Structure
+
+```
+src/app/
+├── home/                    # Home page component (search & display books)
+├── team/                    # Team page component
+├── models/                  # TypeScript interfaces
+│   └── book.interface.ts   # Book model
+├── services/               # API services
+│   └── book.service.ts    # Book recommendation service
+├── app.component.*        # Root component with toolbar
+├── app.routes.ts          # Route configuration
+└── app.config.ts          # App configuration
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Prerequisites
 
-## Code scaffolding
+- Node.js and npm installed
+- Backend API running on `http://localhost:8000`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Installation
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
+## Running the Application
 
-To build the project run:
+1. Make sure your backend API is running on `http://localhost:8000`
+
+2. Start the development server:
 
 ```bash
-ng build
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+3. Navigate to `http://localhost:4200/` in your browser
 
-## Running unit tests
+## API Endpoint
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+The application connects to:
+- **POST** `http://localhost:8000/api/generate`
+- **Request Body**: `{ "prompt": "your book preferences" }`
+- **Response**: Array of book recommendations
 
-```bash
-ng test
-```
+## Pages
 
-## Running end-to-end tests
+### Home (/)
+- Search form for book preferences
+- Grid display of recommended books
+- Responsive card layout
 
-For end-to-end (e2e) testing, run:
+### Team (/team)
+- Team member profiles
+- Avatar and role display
 
-```bash
-ng e2e
-```
+## Technologies Used
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Angular 19
+- Angular Material
+- Standalone Components
+- RxJS
+- TypeScript
 
-## Additional Resources
+## Learning Objectives
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This application demonstrates:
+1. Creating standalone Angular components
+2. Service injection and HTTP requests
+3. Angular routing
+4. Angular Material components (toolbar, cards, forms)
+5. Responsive design with CSS Grid
+6. TypeScript interfaces
+7. Observable handling
