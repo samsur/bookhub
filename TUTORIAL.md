@@ -51,7 +51,7 @@ Open the project in Visual Studio Code:
 code .
 ```
 
-This will open VS Code with your bookhub project.
+This will open VS Code with your bookhub project. If the above command did not work, open the VS code application and open the bookhub folder
 
 ## Step 4: Create the Project Structure
 
