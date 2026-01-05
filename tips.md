@@ -49,7 +49,7 @@ Create folder `indigo.backend` and open in VS Code.
 
 Create these files:
 
-**`requirements.txt`** (if using AI):
+**`requirements.txt`** (if using AI from groq) with the following content:
 ```
 fastapi
 uvicorn
@@ -57,7 +57,7 @@ groq
 python-dotenv
 ```
 
-**`.gitignore`**:
+**`.gitignore`** with the following contnt:
 ```
 .env
 .Python
@@ -69,6 +69,7 @@ lib/
 
 **Push to GitHub:**
 VS Code: Click Source Control icon > type message "Initial Angular setup" > click checkmark
+
 OR Terminal:
 ```bash
 git init
