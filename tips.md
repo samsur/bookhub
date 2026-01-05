@@ -309,3 +309,12 @@ You have decided to use the codename: lodestar
  - update main.py by adding a print statement
  - commit and publish the changes
  - check the github repo of grace and your changes should be there
+
+ # Group Exercise 2
+ Brainstorming:
+ As a team, brainstorm and design an app that helps solve an environmental problem. Answer the three key questions:
+ - Who will use your app?
+ - What environmental problem are they facing?
+ - What is the ONE thing your app does to help?
+ 
+ Then sketch your wireframe and define your data model (JSON format).
