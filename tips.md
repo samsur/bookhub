@@ -2,17 +2,12 @@
 
 This guide helps high school students build a working demo in 24 hours with a few hours of sleep.
 
-## Assumptions
-
-- Total time: 24 hours
-- Sleep: ~5 hours
-- Goal: working, stable demo with clear explanation
 
 ## Hour 0-1: Kickoff and Setup
 
-### 1. Choose a Project Name (5 minutes)
+### 1. Choose a  name for the Project  (5 minutes)
 
-Pick a simple name. Example: `indigo`, `indigo.web`, `indigo.backend`
+Pick a simple code name. Example: `indigo`, `indigo.web`, `indigo.backend`
 
 ### 2. Set Up Front-End (Angular)
 
@@ -73,8 +68,8 @@ lib/
 **`main.py`** (empty for now)
 
 **Push to GitHub:**
-
-Terminal:
+VS Code: Click Source Control icon > type message "Initial Angular setup" > click checkmark
+OR Terminal:
 ```bash
 git init
 git add .
@@ -90,12 +85,13 @@ git push -u origin main
 
 **IMPORTANT: Commit and Publish Regularly!**
 
-Throughout the hackathon, remember to:
-1. **Commit** your changes (saves locally)
-2. **Push/Publish** to GitHub (saves to the cloud)
-
 In VS Code: After committing, click "Sync Changes" or "Publish Branch" button
 In Terminal: Run `git push` after each commit
+
+If 2 students are working on the same project, first student will create the repo and publish the change, the second student will clone the repo using command such as
+
+``` git clone https://github.com/student-name/indigo-backend.git
+```
 
 Do this every hour or after completing a feature. If your laptop crashes, you'll have a backup!
 
