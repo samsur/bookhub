@@ -401,7 +401,7 @@ Use these tools to test your back-end independently:
 - **curl**: Command-line tool for testing endpoints
 
 ```bash
-curl http://localhost:5000/api/events
+curl http://localhost:8000/api/events
 ```
 
 ## Final Principles
