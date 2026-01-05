@@ -284,3 +284,27 @@ curl http://localhost:8000/api/events
 ## Final Reminder
 
 Judges care most about clarity, execution, and teamwork, not perfection.
+
+
+# Group Exercise
+You have decided to use the codename: lodestar
+Tara:
+- create angular project called lodestar.web
+- add angular material
+- commit to your local git repository
+- create a repository in github
+- set the origin and publish to github
+Grace:
+ - Create a folder called lodestar.backend
+ - open in vscode
+ - add requirements.txt, .env file,.gitignore file and main.py
+ - initialize git repository
+ - create repository in github
+ - set the origin and publish to github
+ - add rebecca and tara as contributors to git repo
+Rebecca:
+ - clone the git repository created by Grace from github
+ - run pip3 install -r requirements.txt
+ - update main.py by adding a print statement
+ - commit and publish the changes
+ - check the github repo of grace and your changes should be there
