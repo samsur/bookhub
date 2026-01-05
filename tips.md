@@ -1,29 +1,20 @@
-# 24-Hour Hackathon Guide (Complete, End-to-End)
+# 24-Hour Hackathon Guide
 
-This guide is designed for high school students participating in a 24-hour hackathon. It assumes approximately **few hours of sleep** and focuses on **execution, stability, and a strong demo**.
+This guide helps high school students build a working demo in 24 hours with a few hours of sleep.
 
 ## Assumptions
 
 - Total time: 24 hours
 - Sleep: ~5 hours
-- Goal: a working, stable demo with a clear explanation
+- Goal: working, stable demo with clear explanation
 
-## Hour 0-1: Kickoff and Momentum
+## Hour 0-1: Kickoff and Setup
 
 ### 1. Choose a Project Name (5 minutes)
 
-Pick a simple name for your project. Don't spend too much time on this! You can always change it later.
+Pick a simple name. Example: `indigo`, `indigo.web`, `indigo.backend`
 
-Example:
-- Project name: `indigo`
-- Front-end (website): `indigo.web`
-- Back-end (server): `indigo.backend`
-
-Why do this? Because you can start building even if you're still deciding on your final app idea.
-
-### 2. Set Up the Front-End (Angular)
-
-Create the Angular project:
+### 2. Set Up Front-End (Angular)
 
 ```bash
 ng new indigo-web
@@ -31,51 +22,25 @@ cd indigo-web
 ng add @angular/material
 ```
 
+Open in VS Code: File > Open Folder > choose `indigo-web`
 
-**Open the project in Visual Studio Code:**
+### 3. Push Front-End to GitHub
 
+**Commit locally (choose one method):**
 
- manually open VS Code and select File > Open Folder, then choose the `indigo-web` folder.
+VS Code: Click Source Control icon > type message "Initial Angular setup" > click checkmark
 
-### 3. Create GitHub Repository for Front-End
-
-**Step 1: Commit your code locally**
-
-You can commit using the VS Code interface or the terminal.
-
-**Option A: Using VS Code Interface**
-
-1. Click on the **Source Control icon** (branch icon) in the left navigation bar
-2. You should see all your files listed as changes
-3. Type a commit message like "Initial Angular setup" in the message box
-4. Click the checkmark button to commit
-
-**Option B: Using Terminal**
-
-Open a terminal in VS Code (Terminal > New Terminal) and run:
-
+OR Terminal:
 ```bash
 git add .
 git commit -m "Initial Angular setup"
 ```
 
-**Step 2: Create GitHub Repository**
-
-1. Go to [GitHub](https://github.com) and sign in
-2. Click the **+** icon in the top right corner and select "New repository"
-3. Name it `indigo.web` (use the same name as your project)
-4. Do NOT initialize with README, .gitignore, or license
-5. Click "Create repository"
-
-**Step 3: Connect and Push to GitHub**
-
-After creating the repository, GitHub will show you instructions. Look for the section that says:
-
-```
-...or push an existing repository from the command line
-```
-
-You will see commands like:
+**Create GitHub repo:**
+1. Go to GitHub > New repository > name it `indigo.web`
+2. Do NOT initialize with README
+3. Copy the commands GitHub shows under "push an existing repository"
+4. Paste in VS Code terminal (replace YOUR-USERNAME):
 
 ```bash
 git remote add origin https://github.com/YOUR-USERNAME/indigo.web.git
@@ -83,33 +48,13 @@ git branch -M main
 git push -u origin main
 ```
 
-**Copy these commands one by one** and paste them into your VS Code terminal:
+### 4. Set Up Back-End (Python)
 
-```bash
-git remote add origin https://github.com/YOUR-USERNAME/indigo.web.git
-git branch -M main
-git push -u origin main
-```
+Create folder `indigo.backend` and open in VS Code.
 
-Replace `YOUR-USERNAME` with your actual GitHub username.
+Create these files:
 
-**Why do this early?** If something goes wrong later, you have a backup. Plus it feels good to have your first commit done!
-
-### 4. Set Up the Back-End Skeleton (Python)
-
-Create a folder named `indigo.backend`. 
-**Open the project in Visual Studio Code:**
-
-Manually open VS Code and select File > Open Folder, then choose the `indigo.backend` folder.
-
-Add:
-
-- `main.py`
-- `requirements.txt`
-- `.gitignore`
-
-`requirements.txt` lists all the Python packages your project needs. If you're building a backend that uses AI, add:
-
+**`requirements.txt`** (if using AI):
 ```
 fastapi
 uvicorn
@@ -117,8 +62,7 @@ groq
 python-dotenv
 ```
 
-`.gitignore` tells Git which files NOT to save to GitHub (like secret keys). Add:
-
+**`.gitignore`**:
 ```
 .env
 .Python
@@ -126,250 +70,171 @@ build/
 lib/
 ```
 
+**`main.py`** (empty for now)
 
+**Push to GitHub:**
 
-
-### Initialize Git Repository and Push to GitHub
-
-**Step 1: Initialize Git in your project**
-
-Open a terminal in VS Code (Terminal > New Terminal) and run:
-
+Terminal:
 ```bash
 git init
 git add .
 git commit -m "Initial backend setup"
 ```
 
-**Option: Using VS Code Interface**
-
-Alternatively, you can:
-1. Click on the **Source Control icon** (branch icon) in the left navigation bar
-2. Click "Initialize Repository"
-3. You should see all your files listed as changes
-4. Type a commit message like "Initial backend setup" in the message box
-5. Click the checkmark button to commit
-
-**Step 2: Create GitHub Repository**
-
-1. Go to [GitHub](https://github.com) and sign in
-2. Click the **+** icon in the top right corner and select "New repository"
-3. Name it `indigo.backend` (use the same name as your project)
-4. Do NOT initialize with README, .gitignore, or license
-5. Click "Create repository"
-
-**Step 3: Connect and Push to GitHub**
-
-After creating the repository, GitHub will show you instructions. Look for the section that says:
-
-```
-...or push an existing repository from the command line
-```
-
-You will see commands like:
-
+Create GitHub repo named `indigo.backend`, then:
 ```bash
 git remote add origin https://github.com/YOUR-USERNAME/indigo.backend.git
 git branch -M main
 git push -u origin main
 ```
 
-**Copy these commands one by one** and paste them into your VS Code terminal:
+## Hour 1-3: Brainstorm and Plan
 
-```bash
-git remote add origin https://github.com/YOUR-USERNAME/indigo.backend.git
-git branch -M main
-git push -u origin main
-```
+### 5. Brainstorm (Maximum 60 minutes)
 
-Replace `YOUR-USERNAME` with your actual GitHub username.
+Answer these three questions:
+- Who will use your app?
+- What problem do they have?
+- What is the ONE thing your app does?
 
-## Hour 1-3: Focused Brainstorm and Scope Lock
+### 6. Wireframe Your App (30 minutes)
 
-### 5. Brainstorm Your Idea (Maximum 60 minutes)
+**Use paper and pencil to sketch:**
+- Top nav bar (logo, menu items, team link)
+- List view (cards showing your items)
+- Detail page (when you click a card)
+- Any other pages you need
 
-Set a timer and answer these three simple questions:
+Keep it simple! Just boxes and labels.
 
-- Who will use your app? (Example: students, teachers, gamers)
-- What problem are they facing? (Example: can't find study groups easily)
-- What is the ONE thing your app does to help? (Example: shows available study groups)
+### 7. Define Your Data Model (30 minutes)
 
-Keep it simple! Avoid making long lists of features or spending too much time talking. Pick one idea and move forward.
+Example: If building an events app, define the event object as JSON:
 
-### 6. Define What Your App Shows (30 minutes)
-
-Think about the main "thing" your app will display. This is called a data model, but think of it as defining what information you need to show.
-
-**Example:** Let's say you're building an app that shows a list of events. You need to decide: what information does each event have?
-
-```
-Event (this is your main object)
-- id (a unique number for each event)
-- title (the name of the event)
-- dateTime (when it happens)
-- location (where it happens)
-- description (what it's about)
-```
-
-This becomes the blueprint for everything:
-
-- **What your screens show**: Your app will display these fields (title, location, etc.)
-- **What your backend sends**: The Python code will send this exact information
-- **What you demo**: You'll show how users can see and interact with this information
-
-**Keep it simple!** Only add extra fields if you have extra time later.
-
-### 7. Decide What "Done" Looks Like (15 minutes)
-
-MVP stands for "Minimum Viable Product" but think of it as: **What's the simplest version that actually works?**
-
-As a team, agree on this sentence: "If this works, we can show it to the judges."
-
-**Example:** "If a user can see a list of events and click to see details, we can demo."
-
-Everything else (fancy buttons, extra features, cool animations) is optional. Focus on making ONE thing work really well.
-
-## Hour 3-8: Build Your App (Team Split Up)
-
-During these hours, your team should split up and work on different parts at the same time.
-
-### Front-End Team (The Website Part)
-
-- Create the main screens (example: a list of events, a details page)
-- Start with fake data (just make up some events to display while the backend isn't ready)
-- Make sure what you show matches your data model from step 6
-
-### Back-End Team (The Server Part)
-
-- Create the endpoints (these are like URLs that send data)
-- Send back the data in the format that matches your data model
-- Test them by yourself first (before connecting to the website)
-
-### Goal by Hour 8
-
-- The website and server are talking to each other
-- You can click through one complete action (example: see the list, click an event, see the details)
-
-## Hour 8-13: Sleep and Quick Check
-
-### Sleep (Approximately 4.5 hours)
-
-Yes, really! Sleep helps you think clearly and make fewer mistakes. A tired brain makes more bugs.
-
-### Quick Check (30 minutes)
-
-When you wake up:
-- Turn everything off and start it again (restart your servers)
-- Write down what's broken or weird
-- Don't try to rewrite big chunks of code right now
-
-## Hour 13-17: Fix Bugs and Make It Smooth
-
-### 8. Fix What's Broken First
-
-Focus on making things work, not adding new stuff:
-- Server errors (when the website can't talk to the backend)
-- Data problems (information showing up wrong or missing)
-- Broken clicks (buttons that don't work)
-
-### 9. Make It Easy to Use
-
-Small improvements that make a big difference:
-- Clear labels (instead of "Submit", say "Add Event")
-- Everything looks organized (not messy)
-- Show "Loading..." when data is coming from the server
-
-### Goal by Hour 17
-
-- Your app doesn't crash
-- You can walk through your demo without surprises
-
-## Hour 17-20: Make It Stand Out
-
-### 10. Add ONE Cool Extra Thing
-
-Pick just one thing that makes your app special. Don't try to add everything!
-
-Ideas:
-- Search or filter (example: search events by location)
-- Smart suggestions (example: show events happening today first)
-- Use AI for something simple (example: summarize event descriptions)
-
-### Make It Look Good
-
-Small visual touches:
-- Use the same colors throughout
-- Make text easy to read (not too small, not weird fonts)
-- Buttons should look like buttons
-
-## Hour 20-22: Get Ready to Present
-
-### 11. Create 3 to 4 Slides
-
-Keep your slides super simple. Here's what to include:
-
-- **Problem**: What problem does your app solve? (1 sentence)
-- **Solution**: What does your app do? (1 sentence)
-- **How it works**: Show a simple diagram (boxes for website, server, maybe AI)
-- **Demo and team**: List your team members and say you'll show a live demo
-
-Don't fill slides with tons of text. Keep it simple so judges focus on your demo!
-
-### 12. Decide Who Does What in the Demo
-
-- **Speaker**: Tells the story and explains what the app does
-- **Driver**: Actually clicks through the app on screen
-- **Backup**: Answers questions if judges ask about technical stuff
-
-## Hour 22-23: Practice Your Demo
-
-- Run through your demo completely, just like you'll do for judges
-- Practice what you'll say at each step
-- Have a backup plan: "If the server crashes, here's what we would show..."
-
-## Hour 23-24: Final Checks Before Demo
-
-- Restart both your website and server (turn them off and on)
-- Open all the browser tabs you'll need
-- Make sure you can access your GitHub repositories (judges might want to see your code)
-
-## Troubleshooting Guide
-
-### Front-End Debugging (Website Part)
-
-**How to See What's Happening**
-
-Add `console.log()` to print out information and see what's going on in your code:
-
-```typescript
-export class MyComponent {
-  loadData() {
-    console.log('Starting to load data...');
-    this.service.getData().subscribe(data => {
-      console.log('Received data:', data);
-      this.items = data;
-    });
-  }
+```json
+{
+  "id": 1,
+  "title": "Hackathon Workshop",
+  "dateTime": "2024-01-15T10:00:00",
+  "location": "Room 205",
+  "description": "Learn to build apps fast"
 }
 ```
 
-**Where to See the Output**
+This is your blueprint. Your screens will show this data, your backend will send this data.
 
-1. In your web browser, press F12 (or right-click > Inspect)
-2. Click on the "Console" tab
-3. Run your app and you'll see your messages appear there
+### 8. Lock Your MVP (15 minutes)
 
-**Common Problems**
+As a team, finish this sentence: "If this works, we can demo."
 
-- **CORS errors**: This means your backend needs to allow your website to connect to it. Look for "CORS" or "Access-Control" errors.
-- **Undefined is not an object**: Something you're trying to use doesn't exist yet. Check your console.log messages to see where it goes wrong.
-- **Can't connect to backend**: Make sure your backend server is actually running, and check that the URL is correct (usually http://localhost:8000)
+Example: "If users can see a list of events and click to see details, we can demo."
 
-### Back-End Debugging (Python Server Part)
+Everything else is optional.
 
-**How to See What's Happening**
+## Hour 3-8: Build MVP
 
-Add `print()` statements to see what your code is doing:
+Team splits up to work in parallel.
+
+**Front-End:**
+- Create list and detail screens
+- Use fake data initially
+- Match your data model
+
+**Back-End:**
+- Create endpoints that return JSON
+- Match your data model
+- Test independently
+
+**Goal by Hour 8:** Website and server communicate. One complete flow works.
+
+## Hour 8-13: Sleep and Quick Check
+
+**Sleep:** 4.5 hours (yes, really!)
+
+**Quick Check (30 min):**
+- Restart servers
+- Note what's broken
+- Don't rewrite code yet
+
+## Hour 13-17: Fix and Stabilize
+
+### Fix What's Broken
+- Server errors
+- Data mismatches
+- Broken buttons/links
+
+### Improve Usability
+- Clear labels
+- Organized layout
+- Loading states
+
+**Goal:** App is stable. Demo flow is predictable.
+
+## Hour 17-20: Polish
+
+### Add ONE Feature
+
+Pick one:
+- Search/filter
+- Smart sorting
+- Simple AI feature
+
+### Visual Polish
+- Consistent colors
+- Readable text
+- Clear buttons
+
+## Hour 20-22: Prepare Presentation
+
+### Create 3-4 Slides
+
+- **Problem** (1 sentence)
+- **Solution** (1 sentence)
+- **How it works** (simple diagram)
+- **Team & Demo** (names + "we'll show a live demo")
+
+### Assign Roles
+- **Speaker**: Explains the story
+- **Driver**: Controls the app
+- **Backup**: Answers technical questions
+
+## Hour 22-23: Practice Demo
+
+- Run through demo start to finish
+- Practice explanations
+- Prepare backup plan if something fails
+
+## Hour 23-24: Final Checks
+
+- Restart servers
+- Open browser tabs
+- Confirm GitHub access
+
+## Troubleshooting
+
+### Front-End Debugging
+
+Add `console.log()` to see what's happening:
+
+```typescript
+loadData() {
+  console.log('Starting to load data...');
+  this.service.getData().subscribe(data => {
+    console.log('Received data:', data);
+  });
+}
+```
+
+View output: Press F12 > Console tab
+
+**Common issues:**
+- **CORS errors**: Backend needs to allow your website to connect
+- **Undefined errors**: Check console.log to find where data goes missing
+- **Can't connect**: Verify backend is running on correct URL (usually http://localhost:8000)
+
+### Back-End Debugging
+
+Add `print()` statements:
 
 ```python
 @app.route('/api/events')
@@ -380,37 +245,27 @@ def get_events():
     return jsonify(events)
 ```
 
-**Where to See the Output**
+View output in the terminal where you started Python server.
 
-Look at the terminal window where you started your Python server. Your print messages will show up there.
+**Common issues:**
+- **Port in use**: Close old server or use different port
+- **Module not found**: Run `pip install -r requirements.txt`
+- **JSON errors**: Convert datetime objects to strings first
 
-**Common Problems**
+### Test Backend Independently
 
-- **Port already in use**: This means something is already running on that port. Close the old server or change the port number.
-- **Module not found**: You forgot to install something. Run `pip install -r requirements.txt` in your terminal.
-- **Can't convert to JSON**: Your data has something that can't be sent (like a datetime). Convert it to a string first.
-
-### Testing Your Backend Without the Website
-
-You can test if your backend is working before connecting it to your website:
-
-- **Postman**: A free app that lets you test your backend by clicking buttons (easier for beginners)
-- **curl**: A command you type in the terminal to test your backend
-
-Example curl command (type this in your terminal):
+Use Postman (GUI) or curl (terminal):
 
 ```bash
 curl http://localhost:8000/api/events
 ```
 
-This will show you what data your backend is sending. If you see your data, it's working!
-
 ## Final Principles
 
-- A working demo is more important than extra features
-- Stability is more valuable than complexity
-- One well-executed idea beats many unfinished ideas
-- Sleep improves decision-making and demo quality
+- Working demo > extra features
+- Stability > complexity
+- One well-executed idea > many unfinished ideas
+- Sleep improves demo quality
 
 ## Final Reminder
 
