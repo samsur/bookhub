@@ -88,6 +88,17 @@ git branch -M main
 git push -u origin main
 ```
 
+**IMPORTANT: Commit and Publish Regularly!**
+
+Throughout the hackathon, remember to:
+1. **Commit** your changes (saves locally)
+2. **Push/Publish** to GitHub (saves to the cloud)
+
+In VS Code: After committing, click "Sync Changes" or "Publish Branch" button
+In Terminal: Run `git push` after each commit
+
+Do this every hour or after completing a feature. If your laptop crashes, you'll have a backup!
+
 ## Hour 1-3: Brainstorm and Plan
 
 ### 5. Brainstorm (Maximum 60 minutes)
@@ -145,7 +156,11 @@ Team splits up to work in parallel.
 - Match your data model
 - Test independently
 
+**⚠️ WARNING:** If 2+ people work on the same part (both on front-end or both on back-end), work on DIFFERENT pages or features! This prevents merge conflicts. Example: Person A builds list page, Person B builds detail page.
+
 **Goal by Hour 8:** Website and server communicate. One complete flow works.
+
+**Remember:** Commit and push your code every hour! In VS Code, commit then click "Sync Changes" to publish.
 
 ## Hour 8-13: Sleep and Quick Check
 
@@ -169,6 +184,8 @@ Team splits up to work in parallel.
 - Loading states
 
 **Goal:** App is stable. Demo flow is predictable.
+
+**Remember:** Commit and push your fixes to GitHub!
 
 ## Hour 17-20: Polish
 
@@ -266,6 +283,7 @@ curl http://localhost:8000/api/events
 - Stability > complexity
 - One well-executed idea > many unfinished ideas
 - Sleep improves demo quality
+- **Commit AND push regularly** - don't lose your work!
 
 ## Final Reminder
 
