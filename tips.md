@@ -10,16 +10,16 @@ This guide is designed for high school students participating in a 24-hour hacka
 
 ## Hour 0-1: Kickoff and Momentum
 
-### 1. Choose a Project Code Name (5 minutes)
+### 1. Choose a Project Name (5 minutes)
 
-Pick a **neutral code name** that does not define the final solution.
+Pick a simple name for your project. Don't spend too much time on this! You can always change it later.
 
 Example:
-- Project code name: `indigo`
-- Front-end: `indigo.web`
-- Back-end: `indigo.backend`
+- Project name: `indigo`
+- Front-end (website): `indigo.web`
+- Back-end (server): `indigo.backend`
 
-This avoids blocking progress while ideas are still forming.
+Why do this? Because you can start building even if you're still deciding on your final app idea.
 
 ### 2. Set Up the Front-End (Angular)
 
@@ -93,7 +93,7 @@ git push -u origin main
 
 Replace `YOUR-USERNAME` with your actual GitHub username.
 
-Early commits reduce risk and build confidence.
+**Why do this early?** If something goes wrong later, you have a backup. Plus it feels good to have your first commit done!
 
 ### 4. Set Up the Back-End Skeleton (Python)
 
@@ -108,7 +108,7 @@ Add:
 - `requirements.txt`
 - `.gitignore`
 
- `requirements.txt` should contain the following content if building API that connects to LLM:
+`requirements.txt` lists all the Python packages your project needs. If you're building a backend that uses AI, add:
 
 ```
 fastapi
@@ -116,12 +116,14 @@ uvicorn
 groq
 python-dotenv
 ```
-`.gitignore` file should contain the following content
+
+`.gitignore` tells Git which files NOT to save to GitHub (like secret keys). Add:
+
 ```
 .env
 .Python
-build\
-lib\
+build/
+lib/
 ```
 
 
@@ -184,151 +186,160 @@ Replace `YOUR-USERNAME` with your actual GitHub username.
 
 ## Hour 1-3: Focused Brainstorm and Scope Lock
 
-### 5. Time-Boxed Brainstorm (Maximum 60 minutes)
+### 5. Brainstorm Your Idea (Maximum 60 minutes)
 
-Answer only:
+Set a timer and answer these three simple questions:
 
-- Who is the user?
-- What problem do they have?
-- What is the one thing the app does?
+- Who will use your app? (Example: students, teachers, gamers)
+- What problem are they facing? (Example: can't find study groups easily)
+- What is the ONE thing your app does to help? (Example: shows available study groups)
 
-Avoid feature lists and extended discussions.
+Keep it simple! Avoid making long lists of features or spending too much time talking. Pick one idea and move forward.
 
-### 6. Pick One Core Object and Data Model (30 minutes)
+### 6. Define What Your App Shows (30 minutes)
 
-Choose a single object that represents the entire app.
+Think about the main "thing" your app will display. This is called a data model, but think of it as defining what information you need to show.
 
-Example: Event Model
+**Example:** Let's say you're building an app that shows a list of events. You need to decide: what information does each event have?
 
 ```
-Event
-- id
-- title
-- dateTime
-- location
-- description
+Event (this is your main object)
+- id (a unique number for each event)
+- title (the name of the event)
+- dateTime (when it happens)
+- location (where it happens)
+- description (what it's about)
 ```
 
-This model becomes the foundation for:
+This becomes the blueprint for everything:
 
-- UI design
-- API design
-- Demo flow
+- **What your screens show**: Your app will display these fields (title, location, etc.)
+- **What your backend sends**: The Python code will send this exact information
+- **What you demo**: You'll show how users can see and interact with this information
 
-Optional fields are added only if time allows.
+**Keep it simple!** Only add extra fields if you have extra time later.
 
-### 7. Lock the MVP Scope (15 minutes)
+### 7. Decide What "Done" Looks Like (15 minutes)
 
-Agree as a team: "If this works, we can demo."
+MVP stands for "Minimum Viable Product" but think of it as: **What's the simplest version that actually works?**
 
-Anything beyond this is optional.
+As a team, agree on this sentence: "If this works, we can show it to the judges."
 
-## Hour 3-8: Build the MVP (Parallel Work)
+**Example:** "If a user can see a list of events and click to see details, we can demo."
 
-### Front-End Tasks
+Everything else (fancy buttons, extra features, cool animations) is optional. Focus on making ONE thing work really well.
 
-- Create core components such as list and detail views
-- Use mock data initially
-- Build UI strictly based on the data model
+## Hour 3-8: Build Your App (Team Split Up)
 
-### Back-End Tasks
+During these hours, your team should split up and work on different parts at the same time.
 
-- Implement core API endpoints
-- Return JSON matching the data model
-- Test endpoints independently
+### Front-End Team (The Website Part)
+
+- Create the main screens (example: a list of events, a details page)
+- Start with fake data (just make up some events to display while the backend isn't ready)
+- Make sure what you show matches your data model from step 6
+
+### Back-End Team (The Server Part)
+
+- Create the endpoints (these are like URLs that send data)
+- Send back the data in the format that matches your data model
+- Test them by yourself first (before connecting to the website)
 
 ### Goal by Hour 8
 
-- Front-end and back-end communicate
-- One complete end-to-end flow works
+- The website and server are talking to each other
+- You can click through one complete action (example: see the list, click an event, see the details)
 
-## Hour 8-13: Sleep and Light Review
+## Hour 8-13: Sleep and Quick Check
 
-### Sleep (Approximately 5 hours)
+### Sleep (Approximately 4.5 hours)
 
-Sleep is required to maintain focus and reduce errors.
+Yes, really! Sleep helps you think clearly and make fewer mistakes. A tired brain makes more bugs.
 
-### Light Review (15 to 30 minutes)
+### Quick Check (30 minutes)
 
-- Restart the application
-- Note bugs and issues
-- Do not perform major refactors
+When you wake up:
+- Turn everything off and start it again (restart your servers)
+- Write down what's broken or weird
+- Don't try to rewrite big chunks of code right now
 
-## Hour 13-17: Integration and Stability
+## Hour 13-17: Fix Bugs and Make It Smooth
 
-### 8. Fix Stability Issues First
+### 8. Fix What's Broken First
 
-- API errors
-- Data mismatches
-- Broken UI flows
+Focus on making things work, not adding new stuff:
+- Server errors (when the website can't talk to the backend)
+- Data problems (information showing up wrong or missing)
+- Broken clicks (buttons that don't work)
 
-### 9. Improve Usability Carefully
+### 9. Make It Easy to Use
 
-- Clear labels
-- Consistent layout
-- Basic loading states
+Small improvements that make a big difference:
+- Clear labels (instead of "Submit", say "Add Event")
+- Everything looks organized (not messy)
+- Show "Loading..." when data is coming from the server
 
 ### Goal by Hour 17
 
-- Application is stable
-- Demo flow is predictable
+- Your app doesn't crash
+- You can walk through your demo without surprises
 
-## Hour 17-20: Differentiation and Polish
+## Hour 17-20: Make It Stand Out
 
-### 10. Add One Bonus Feature
+### 10. Add ONE Cool Extra Thing
 
-Choose only one:
+Pick just one thing that makes your app special. Don't try to add everything!
 
-- Filtering or search
-- Smart defaults
-- Simple rule-based logic or AI usage
+Ideas:
+- Search or filter (example: search events by location)
+- Smart suggestions (example: show events happening today first)
+- Use AI for something simple (example: summarize event descriptions)
 
-Avoid adding multiple features.
+### Make It Look Good
 
-### Visual Polish
+Small visual touches:
+- Use the same colors throughout
+- Make text easy to read (not too small, not weird fonts)
+- Buttons should look like buttons
 
-- Consistent colors
-- Readable typography
-- Clear buttons and actions
-
-## Hour 20-22: Presentation Preparation
+## Hour 20-22: Get Ready to Present
 
 ### 11. Create 3 to 4 Slides
 
-Recommended structure:
+Keep your slides super simple. Here's what to include:
 
-- Problem
-- Solution
-- Architecture (front-end and back-end)
-- Demo and team
+- **Problem**: What problem does your app solve? (1 sentence)
+- **Solution**: What does your app do? (1 sentence)
+- **How it works**: Show a simple diagram (boxes for website, server, maybe AI)
+- **Demo and team**: List your team members and say you'll show a live demo
 
-Slides should be minimal and clear.
+Don't fill slides with tons of text. Keep it simple so judges focus on your demo!
 
-### 12. Assign Demo Roles
+### 12. Decide Who Does What in the Demo
 
-- **Speaker**: explains the story
-- **Driver**: controls the app during demo
-- **Backup**: answers technical or architecture questions
+- **Speaker**: Tells the story and explains what the app does
+- **Driver**: Actually clicks through the app on screen
+- **Backup**: Answers questions if judges ask about technical stuff
 
-## Hour 22-23: Demo Rehearsal
+## Hour 22-23: Practice Your Demo
 
-- Run the demo from start to finish
-- Practice explanations
-- Prepare a fallback explanation if something fails
+- Run through your demo completely, just like you'll do for judges
+- Practice what you'll say at each step
+- Have a backup plan: "If the server crashes, here's what we would show..."
 
-## Hour 23-24: Final Checks
+## Hour 23-24: Final Checks Before Demo
 
-- Restart servers
-- Open required browser tabs
-- Confirm repositories and code are accessible
+- Restart both your website and server (turn them off and on)
+- Open all the browser tabs you'll need
+- Make sure you can access your GitHub repositories (judges might want to see your code)
 
 ## Troubleshooting Guide
 
-### Front-End Debugging
+### Front-End Debugging (Website Part)
 
-**Using Console Logging**
+**How to See What's Happening**
 
-Add `console.log()` statements to track variable values and execution flow:
+Add `console.log()` to print out information and see what's going on in your code:
 
 ```typescript
 export class MyComponent {
@@ -342,23 +353,23 @@ export class MyComponent {
 }
 ```
 
-**Viewing Console Output**
+**Where to See the Output**
 
-1. Open browser Developer Tools (F12 or right-click > Inspect)
-2. Navigate to the Console tab
-3. Run your application and observe the output
+1. In your web browser, press F12 (or right-click > Inspect)
+2. Click on the "Console" tab
+3. Run your app and you'll see your messages appear there
 
-**Common Issues**
+**Common Problems**
 
-- **CORS errors**: Ensure your back-end allows requests from your front-end origin
-- **Undefined variables**: Check console logs to see where data becomes undefined
-- **API connection**: Verify the API URL is correct and the server is running
+- **CORS errors**: This means your backend needs to allow your website to connect to it. Look for "CORS" or "Access-Control" errors.
+- **Undefined is not an object**: Something you're trying to use doesn't exist yet. Check your console.log messages to see where it goes wrong.
+- **Can't connect to backend**: Make sure your backend server is actually running, and check that the URL is correct (usually http://localhost:8000)
 
-### Back-End Debugging (Python)
+### Back-End Debugging (Python Server Part)
 
-**Using Print Statements**
+**How to See What's Happening**
 
-Add `print()` statements to track execution and data:
+Add `print()` statements to see what your code is doing:
 
 ```python
 @app.route('/api/events')
@@ -369,40 +380,30 @@ def get_events():
     return jsonify(events)
 ```
 
-**Viewing Output**
+**Where to See the Output**
 
-The print statements will appear in the terminal where you started your Python server.
+Look at the terminal window where you started your Python server. Your print messages will show up there.
 
-**Using Python Debugger**
+**Common Problems**
 
-For more complex issues, use the built-in debugger:
+- **Port already in use**: This means something is already running on that port. Close the old server or change the port number.
+- **Module not found**: You forgot to install something. Run `pip install -r requirements.txt` in your terminal.
+- **Can't convert to JSON**: Your data has something that can't be sent (like a datetime). Convert it to a string first.
 
-```python
-import pdb
+### Testing Your Backend Without the Website
 
-@app.route('/api/events')
-def get_events():
-    pdb.set_trace()  # Execution will pause here
-    events = fetch_from_database()
-    return jsonify(events)
-```
+You can test if your backend is working before connecting it to your website:
 
-**Common Issues**
+- **Postman**: A free app that lets you test your backend by clicking buttons (easier for beginners)
+- **curl**: A command you type in the terminal to test your backend
 
-- **Port already in use**: Kill the existing process or use a different port
-- **Module not found**: Check if all dependencies in `requirements.txt` are installed
-- **JSON serialization errors**: Ensure all data types can be converted to JSON
-
-### Testing API Endpoints
-
-Use these tools to test your back-end independently:
-
-- **Postman**: GUI tool for testing API requests
-- **curl**: Command-line tool for testing endpoints
+Example curl command (type this in your terminal):
 
 ```bash
 curl http://localhost:8000/api/events
 ```
+
+This will show you what data your backend is sending. If you see your data, it's working!
 
 ## Final Principles
 
